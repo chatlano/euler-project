@@ -1,0 +1,16 @@
+*.iml
+.gradle
+*target
+*elm-stuff
+.cache
+.classpath
+.project
+.settings
+*.map
+*.db
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+*.idea
+.DS_Store
+/build
