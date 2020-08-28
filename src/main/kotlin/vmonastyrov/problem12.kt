@@ -38,6 +38,7 @@ fun getDividers(n: Long): List<Long> = when(n) {
         (1..sqrt).mapNotNull { if (n % it == 0L) listOf(it, n / it) else null }.flatten()
     }
 }
+// TODO implement method using factoring
 
 fun getResult(sizeLimit: Int) : Long {
     var triangleInx = 1L
