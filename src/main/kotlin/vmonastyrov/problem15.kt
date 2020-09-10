@@ -42,11 +42,11 @@ fun countRoutes(m: Int, n: Int): ArrayList<ArrayList<Long>> {
     val grid = arrayListOf<ArrayList<Long>>()
 
     // init cells with known values
-    (0..m).forEach {
+    repeat(m + 1) {
         grid.add(it, arrayListOf(1))
     }
 
-    (1..n).forEach {
+    repeat(n + 1) {
         grid[0].add(1)
     }
 
