@@ -41,7 +41,7 @@ fun walkGrid(grid: Grid, pointer: Pointer?, routesAmount: Long): Long {
 fun countRoutes(m: Int, n: Int): ArrayList<ArrayList<Long>> {
     val grid = arrayListOf<ArrayList<Long>>()
 
-    // init cells with known values
+    // init cells with known values how many allowed ways lead to the cell
     repeat(m + 1) {
         grid.add(it, arrayListOf(1))
     }
@@ -50,6 +50,7 @@ fun countRoutes(m: Int, n: Int): ArrayList<ArrayList<Long>> {
         grid[0].add(1)
     }
 
+    // calculate new values for cells based on already known
     (1..m).forEach { i -> (1..n).forEach { j -> grid[i].add(grid[i - 1][j] + grid[i][j - 1])}}
     return grid
 }
