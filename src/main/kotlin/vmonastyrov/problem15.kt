@@ -9,6 +9,9 @@ How many such routes are there through a 20×20 grid?
 
 **/
 
+/**
+ * Recursive solution with memoization
+ */
 val cache = mutableMapOf<Pointer, Long>()
 
 data class Pointer(val row: Int, val column: Int)
@@ -29,5 +32,25 @@ fun walkGrid(grid: Grid, pointer: Pointer?, routesAmount: Long): Long {
     cache[pointer] = res
 
     return res
+}
+
+/**
+ * Dynamic programming solution
+ */
+
+fun countRoutes(m: Int, n: Int): ArrayList<ArrayList<Long>> {
+    val grid = arrayListOf<ArrayList<Long>>()
+
+    // init cells with known values
+    (0..m).forEach {
+        grid.add(it, arrayListOf(1))
+    }
+
+    (1..n).forEach {
+        grid[0].add(1)
+    }
+
+    (1..m).forEach { i -> (1..n).forEach { j -> grid[i].add(grid[i - 1][j] + grid[i][j - 1])}}
+    return grid
 }
 

@@ -16,19 +16,33 @@ How many such routes are there through a 20×20 grid?
 
 class Problem15Test {
     @Test
-    fun walkingTest() {
+    fun recursiveWalkingTest() {
         val grid = Grid(2, 2)
         val routes = walkGrid(grid, Pointer(0, 0), 0)
         Assertions.assertEquals(6, routes)
     }
 
     @Test
-    fun getResult() {
+    fun getResultRecursive() {
         val grid = Grid(20, 20)
         val exTime = measureTimeMillis {
             val routes = walkGrid(grid, Pointer(0, 0), 0)
             println("Routes = $routes")
         }
-        println("Execution time: ${exTime} ms")
+        println("Execution time: $exTime ms")
+    }
+
+    @Test
+    fun getResultDynamicProgramming() {
+        val m = 2
+        val n = 2
+        val res = countRoutes(m, n)
+        Assertions.assertEquals(6, res[m][n])
+
+        val exTime = measureTimeMillis {
+            val routes = countRoutes(20, 20)
+            println("Routes = ${routes[20][20]}")
+        }
+        println("Execution time: $exTime ms")
     }
 }
