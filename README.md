@@ -1,2 +1,2 @@
 # euler-project
-Solutions for Euler project task with Kotlin
+Solutions for Euler project tasks with Kotlin
